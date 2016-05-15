@@ -2,7 +2,7 @@
 <c2layout>
     <name>Menu</name>
     <sid>4535455252141088</sid>
-    <event-sheet>Level1Code</event-sheet>
+    <event-sheet>MenuCode</event-sheet>
     <size>
         <width>1280</width>
         <height>720</height>

@@ -2,5 +2,94 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Level1Code</name>
-    <events />
+    <events>
+        <variable constant="0" name="Score" sid="6578744855696998" static="0" type="number">0</variable>
+        <event-block sid="8819708793861755">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3546346635534586" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="78026677865302" type="TiledBackground">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="1990536655195738" type="Block">
+                    <param id="0" name="Angle">180</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5540356072425971">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="1056659422412406" type="TiledBackground">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">-Self.Width / 2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="9093761481803148" type="TiledBackground">
+                    <param id="0" name="X">Self.X + Self.Width / 2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8103719829828062">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="7232289700115234" type="Block">
+                    <param id="0" name="Comparison">3</param>
+                    <param id="1" name="X co-ordinate">-Self.Width / 2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="4355725972786233" type="Block">
+                    <param id="0" name="X">Self.X + Self.Width / 2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5926989596716943">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="1993447986418296" type="Block">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">-Self.Width</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="5830058189650491" type="Block" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="6781280465823375">
+            <conditions>
+                <condition id="0" name="On any touch start" sid="8461364024053293" type="Touch" />
+                <condition id="1" name="On any key pressed" sid="4527951689973057" type="Keyboard" />
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="9981530429213637" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7128275759029402">
+            <conditions>
+                <condition behavior="Platform" id="2" name="Is on floor" sid="9751330669645566" type="Player" />
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="5706686714957095" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="6462660065450814">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="7074147400794903" type="System">
+                    <param id="0" name="Interval (seconds)">0.1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="5774983762957346" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="0" name="Set text" sid="4545317501495355" type="Score">
+                    <param id="0" name="Text">round(Score)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
