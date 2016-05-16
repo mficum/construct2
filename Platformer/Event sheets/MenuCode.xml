@@ -13,5 +13,26 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="4607291289209947">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="4718037891506945" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="1601819784272527" type="Audio">
+                    <param id="0" name="Audio file">MattOglseby - 1</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">100</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4655566148181915">
+            <conditions>
+                <condition id="-3" name="On end of layout" sid="8171276276448503" type="System" />
+            </conditions>
+            <actions>
+                <action id="33" name="Stop all" sid="4809069119661077" type="Audio" />
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

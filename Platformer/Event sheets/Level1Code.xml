@@ -8,11 +8,24 @@
                 <condition id="-2" name="On start of layout" sid="3546346635534586" type="System" />
             </conditions>
             <actions>
+                <action id="-13" name="Set time scale" sid="7557731193687969" type="System">
+                    <param id="0" name="Time scale">1.0</param>
+                </action>
                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="78026677865302" type="TiledBackground">
                     <param id="0" name="Angle">180</param>
                 </action>
                 <action behavior="Bullet" id="3" name="Set angle of motion" sid="1990536655195738" type="Block">
                     <param id="0" name="Angle">180</param>
+                </action>
+                <action id="0" name="Play" sid="1594385579699663" type="Audio">
+                    <param id="0" name="Audio file">MattOglseby - 3</param>
+                    <param id="2" name="Loop">1</param>
+                    <param id="3" name="Volume">100</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+                <action id="-21" name="Reset global variables" sid="9386028572249916" type="System" />
+                <action id="-15" name="Set visible" sid="7069672678235086" type="PlayButtonInGame">
+                    <param id="0" name="Visibility">0</param>
                 </action>
             </actions>
         </event-block>
@@ -25,19 +38,6 @@
             </conditions>
             <actions>
                 <action id="-1" name="Set X" sid="9093761481803148" type="TiledBackground">
-                    <param id="0" name="X">Self.X + Self.Width / 2</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="8103719829828062">
-            <conditions>
-                <condition id="-1" name="Compare X" sid="7232289700115234" type="Block">
-                    <param id="0" name="Comparison">3</param>
-                    <param id="1" name="X co-ordinate">-Self.Width / 2</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-1" name="Set X" sid="4355725972786233" type="Block">
                     <param id="0" name="X">Self.X + Self.Width / 2</param>
                 </action>
             </actions>
@@ -106,19 +106,232 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="6462660065450814">
+        <event-block sid="8557009863940917">
             <conditions>
-                <condition id="-6" name="Every X seconds" sid="7074147400794903" type="System">
-                    <param id="0" name="Interval (seconds)">0.1</param>
+                <condition id="-1" name="Every tick" sid="6128981412692619" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Add to" sid="4900839507829084" type="System">
+                    <param id="0" name="Variable">CurrentDistance</param>
+                    <param id="1" name="Value">Block.Bullet.Speed * dt</param>
+                </action>
+                <action id="-10" name="Add to" sid="2923972526231595" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Value">Block.Bullet.Speed * dt</param>
+                </action>
+                <action id="0" name="Set text" sid="4809245078676538" type="Score">
+                    <param id="0" name="Text">round(TotalDistance)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3804113635257344">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9115733080593866" type="System">
+                    <param id="0" name="Variable">CurrentDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">NextBlock</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-10" name="Add to" sid="5774983762957346" type="System">
-                    <param id="0" name="Variable">GlobalScore</param>
-                    <param id="1" name="Value">1</param>
+                <action id="-11" name="Subtract from" sid="4632607887754446" type="System">
+                    <param id="0" name="Variable">CurrentDistance</param>
+                    <param id="1" name="Value">NextBlock</param>
                 </action>
-                <action id="0" name="Set text" sid="8298862176452328" type="Score">
-                    <param id="0" name="Text">round(GlobalScore)</param>
+                <action id="-3" name="Create object" sid="8792425929128914" type="System">
+                    <param id="0" name="Object to create">Block</param>
+                    <param id="1" name="Layer">&quot;Game&quot;</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-7" name="Set size" sid="4647943575882968" type="Block">
+                    <param id="0" name="Width">100 + random(400)</param>
+                    <param id="1" name="Height">60 + random(180)</param>
+                </action>
+                <action id="-3" name="Set position" sid="5852966769438326" type="Block">
+                    <param id="0" name="X">LayoutWidth</param>
+                    <param id="1" name="Y">LayoutHeight - Self.Height</param>
+                </action>
+                <action behavior="Bullet" id="3" name="Set angle of motion" sid="8491151020257434" type="Block">
+                    <param id="0" name="Angle">180</param>
+                </action>
+                <action id="-9" name="Set value" sid="4883612486155938" type="System">
+                    <param id="0" name="Variable">NextBlock</param>
+                    <param id="1" name="Value">Block.Width + 20 + random(200)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1571555175468977">
+            <conditions>
+                <condition id="-2" name="Compare Y" sid="4202752989683234" type="Player">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Y co-ordinate">LayoutHeight</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="2946740240967738" type="PlayButtonInGame">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-13" name="Set time scale" sid="136514440297562" type="System">
+                    <param id="0" name="Time scale">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8231907365727102">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8364177784478496" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">5000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="1" name="Set max speed" sid="6855369905464348" type="Player">
+                    <param id="0" name="Max Speed">450</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="2891262298272555" type="Block">
+                    <param id="0" name="Speed">450</param>
+                </action>
+                <action id="-15" name="Set visible" sid="1351743803260257" type="SpeedText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9945361063941336">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7149097580779607" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">6000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4615442041929257" type="SpeedText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3352003519087119">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="5317313938631135" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">10000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="4463377076869785" type="Block">
+                    <param id="0" name="Speed">500</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="3160061998167046" type="Player">
+                    <param id="0" name="Max Speed">500</param>
+                </action>
+                <action id="-15" name="Set visible" sid="1588368335143605" type="SpeedText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1676454508897877">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1230563292016038" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">11000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="1565547581080807" type="SpeedText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1495119435809389">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8653397009581614" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">15000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="3906075712105135" type="Block">
+                    <param id="0" name="Speed">550</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="2946100091439495" type="Player">
+                    <param id="0" name="Max Speed">550</param>
+                </action>
+                <action id="-15" name="Set visible" sid="2454251804909619" type="SpeedText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="2863079270522943">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="8105425878224884" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">16000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="3212103845298077" type="SpeedText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="8803040611707119">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1125080346360891" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">20000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="0" name="Set speed" sid="5968568460330447" type="Block">
+                    <param id="0" name="Speed">600</param>
+                </action>
+                <action behavior="Platform" id="1" name="Set max speed" sid="5541210882659752" type="Player">
+                    <param id="0" name="Max Speed">600</param>
+                </action>
+                <action id="-15" name="Set visible" sid="902848315457064" type="SpeedText">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="558100014823047">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="6401662969476617" type="System">
+                    <param id="0" name="Variable">TotalDistance</param>
+                    <param id="1" name="Comparison">5</param>
+                    <param id="2" name="Value">21000</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="8976288170661926" type="SpeedText">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5550713860294495">
+            <conditions>
+                <condition id="17" name="On tap object" sid="5133511559719911" type="Touch">
+                    <param id="0" name="Object">PlayButtonInGame</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-26" name="Restart layout" sid="2252562224721796" type="System" />
+            </actions>
+        </event-block>
+        <event-block sid="9914281151051349">
+            <conditions>
+                <condition behavior="Platform" id="5" name="On jump" sid="5218754006876988" type="Player" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="9925141106037884" type="Audio">
+                    <param id="0" name="Audio file">Sword Swing</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">100</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>

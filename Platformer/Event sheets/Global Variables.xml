@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Global Variables</name>
     <events>
-        <variable constant="0" name="GlobalScore" sid="4986373080086505" static="0" type="number">0</variable>
+        <variable constant="0" name="NextBlock" sid="5303036919811337" static="0" type="number">600</variable>
+        <variable constant="0" name="CurrentDistance" sid="187754460382737" static="0" type="number">0</variable>
+        <variable constant="0" name="TotalDistance" sid="7756188132854481" static="0" type="number">0</variable>
     </events>
 </c2eventsheet>
