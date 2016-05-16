@@ -3,7 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Level1Code</name>
     <events>
-        <variable constant="0" name="Score" sid="6578744855696998" static="0" type="number">0</variable>
         <event-block sid="8819708793861755">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="3546346635534586" type="System" />
@@ -115,11 +114,11 @@
             </conditions>
             <actions>
                 <action id="-10" name="Add to" sid="5774983762957346" type="System">
-                    <param id="0" name="Variable">Score</param>
+                    <param id="0" name="Variable">GlobalScore</param>
                     <param id="1" name="Value">1</param>
                 </action>
-                <action id="0" name="Set text" sid="4545317501495355" type="Score">
-                    <param id="0" name="Text">round(Score)</param>
+                <action id="0" name="Set text" sid="8298862176452328" type="Score">
+                    <param id="0" name="Text">round(GlobalScore)</param>
                 </action>
             </actions>
         </event-block>

@@ -172,6 +172,7 @@
     <event-folder>
         <event-sheet>Level1Code.xml</event-sheet>
         <event-sheet>MenuCode.xml</event-sheet>
+        <event-sheet>Global Variables.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Touch" uid="1">
