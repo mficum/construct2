@@ -63,6 +63,10 @@
                 <action behavior="Platform" id="7" name="Simulate control" sid="9981530429213637" type="Player">
                     <param id="0" name="Control">2</param>
                 </action>
+                <action id="4" name="Set animation" sid="4936809494137488" type="Player">
+                    <param id="0" name="Animation">&quot;jump&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
             </actions>
         </event-block>
         <event-block sid="7128275759029402">
@@ -72,6 +76,34 @@
             <actions>
                 <action behavior="Platform" id="7" name="Simulate control" sid="5706686714957095" type="Player">
                     <param id="0" name="Control">1</param>
+                </action>
+                <action id="4" name="Set animation" sid="4462302376463726" type="Player">
+                    <param id="0" name="Animation">&quot;walk&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="902302160852282">
+            <conditions>
+                <condition id="-1" name="Compare X" sid="5901178084048789" type="Player">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="X co-ordinate">105</param>
+                </condition>
+                <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="5203249061028299" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="8400290257806999" type="Player">
+                    <param id="0" name="X">Self.X + 5 * dt</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3907387767263474">
+            <conditions>
+                <condition behavior="Platform" id="9" name="On landed" sid="2946673430613173" type="Player" />
+            </conditions>
+            <actions>
+                <action id="-1" name="Set X" sid="1508519100673868" type="Player">
+                    <param id="0" name="X">Self.X + 1</param>
                 </action>
             </actions>
         </event-block>
